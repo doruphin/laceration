@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bduy7eu48a0b8"]
+
+[ext_resource type="Texture2D" uid="uid://nbcv7vmsb35" path="res://assets/hand.png" id="1_rnjyy"]
+[ext_resource type="Texture2D" uid="uid://8effbbolh4mw" path="res://assets/kuhnife.png" id="2_4vge2"]
+[ext_resource type="Script" uid="uid://ylr1lynvksfl" path="res://scripts/Knife.gd" id="2_rnjyy"]
+[ext_resource type="Script" uid="uid://xauee3xefanx" path="res://scripts/Camera.gd" id="4_4vge2"]
+
+[node name="Node2D" type="Node2D" unique_id=567634352]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1851549855]
+position = Vector2(17.62, 0)
+script = ExtResource("4_4vge2")
+
+[node name="Hand" type="Area2D" parent="." unique_id=907214144]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand" unique_id=925598719]
+texture = ExtResource("1_rnjyy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hand" unique_id=1767960272]
+polygon = PackedVector2Array(-240, 197, -277, 240, -173, 194, -160, 202, -157, 222, -171, 237, -279, 289, -284, 360, -491, 360, -484, 279, -530, 228, -542, 196, -520, 185, -458, 215, -428, 116, -402, 118, -394, 149, -390, 196, -351, 132, -318, 116, -301, 143, -327, 194, -270, 150, -253, 147, -238, 168)
+
+[node name="Knife" type="Area2D" parent="." unique_id=214795368]
+script = ExtResource("2_rnjyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife" unique_id=866891521]
+texture = ExtResource("2_4vge2")
+offset = Vector2(222.28, -175.575)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knife" unique_id=1241836412]
+polygon = PackedVector2Array(-6, -14, -14.30249, -44.655502, -19, -62, 1, -61)
+
+[node name="Table" type="Area2D" parent="." unique_id=610701590]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table" unique_id=1035696793]
+polygon = PackedVector2Array(-633, 331, -463, 187, -382, 148, -264, 169, -183, 208, 272, 265, 704, 224, 739, 411, -692, 407)
+
+[connection signal="mouse_entered" from="Table" to="Knife" method="_on_table_mouse_entered"]
+[connection signal="mouse_exited" from="Table" to="Knife" method="_on_table_mouse_exited"]
