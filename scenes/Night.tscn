@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bduy7eu48a0b8"]
+
+[ext_resource type="PackedScene" uid="uid://dddqe0vffndsj" path="res://scenes/HUD.tscn" id="1_4pfsk"]
+[ext_resource type="Script" uid="uid://xauee3xefanx" path="res://scripts/Camera.gd" id="1_ln2um"]
+[ext_resource type="Texture2D" uid="uid://nbcv7vmsb35" path="res://assets/hand.png" id="2_4pfsk"]
+[ext_resource type="Script" uid="uid://ylr1lynvksfl" path="res://scripts/Knife.gd" id="3_jw3gh"]
+[ext_resource type="Texture2D" uid="uid://8effbbolh4mw" path="res://assets/kuhnife.png" id="4_jws2p"]
+
+[node name="Node2D" type="Node2D" unique_id=567634352]
+
+[node name="Hud" parent="." unique_id=53323137 instance=ExtResource("1_4pfsk")]
+follow_viewport_enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1851549855]
+position = Vector2(17.62, 0)
+script = ExtResource("1_ln2um")
+
+[node name="Hand" type="Area2D" parent="." unique_id=907214144]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand" unique_id=925598719]
+texture = ExtResource("2_4pfsk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hand" unique_id=1767960272]
+polygon = PackedVector2Array(-240, 197, -277, 240, -173, 194, -160, 202, -157, 222, -171, 237, -279, 289, -284, 360, -491, 360, -484, 279, -530, 228, -542, 196, -520, 185, -458, 215, -428, 116, -402, 118, -394, 149, -390, 196, -351, 132, -331, 128, -314, 142, -327, 194, -270, 150, -253, 147, -238, 168)
+
+[node name="Knife" type="Area2D" parent="." unique_id=214795368]
+script = ExtResource("3_jw3gh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife" unique_id=866891521]
+position = Vector2(6.720001, 13.575012)
+texture = ExtResource("4_jws2p")
+offset = Vector2(222.28, -175.575)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knife" unique_id=1241836412]
+position = Vector2(6.720001, 13.575012)
+polygon = PackedVector2Array(-6, -14, -14.30249, -44.655502, -19, -62, 1, -61)
+
+[node name="Table" type="Area2D" parent="." unique_id=610701590]
+
+[node name="5" type="Area2D" parent="Table" unique_id=968679716]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/5" unique_id=787858544]
+position = Vector2(-157, -61)
+polygon = PackedVector2Array(-415, 341, -365, 401, -328, 341, -365, 299)
+
+[node name="4" type="Area2D" parent="Table" unique_id=1053108031]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/4" unique_id=1536874902]
+position = Vector2(-157, -61)
+polygon = PackedVector2Array(-325, 265, -300, 275, -292, 241, -307, 249)
+
+[node name="3" type="Area2D" parent="Table" unique_id=156173619]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/3" unique_id=482811067]
+position = Vector2(-157, -61)
+polygon = PackedVector2Array(-237, 215, -227, 236, -206, 212, -224, 209)
+
+[node name="2" type="Area2D" parent="Table" unique_id=193693810]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/2" unique_id=2120865078]
+position = Vector2(-157, -61)
+polygon = PackedVector2Array(-152, 222, -166, 243, -155, 244, -133, 225)
+
+[node name="1" type="Area2D" parent="Table" unique_id=1238612688]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/1" unique_id=1549230340]
+position = Vector2(-85, -28)
+polygon = PackedVector2Array(-154, 209, -176, 242, -141, 247, -109, 230)
+
+[node name="StartZone" type="Area2D" parent="Table" unique_id=677531180]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/StartZone" unique_id=175502917]
+polygon = PackedVector2Array(-155, 212, -166, 268, 28, 271, -1, 231)
+
+[node name="TableCollider" type="CollisionPolygon2D" parent="Table" unique_id=1035696793]
+polygon = PackedVector2Array(-633, 331, -522, 239, -529, 229, -542, 196, -520, 185, -481.88583, 202.99739, -463, 187, -447, 179, -428, 115, -402, 118, -393, 153, -382, 148, -363, 152, -351, 132, -331, 129, -314, 142, -318, 160, -288, 164, -271, 150, -253, 147, -238, 169, -240, 181, -194, 203, -173, 195, -160, 202, -159, 211, 272, 265, 704, 224, 739, 411, -692, 407)
+
+[connection signal="mouse_entered" from="Table" to="Knife" method="_on_table_mouse_entered"]
+[connection signal="mouse_exited" from="Table" to="Knife" method="_on_table_mouse_exited"]

@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if (GameManager._knife_stuck):
+	if (GameManager.knife_stuck):
 		return
 	
 	var window_size = get_window().size
